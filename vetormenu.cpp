@@ -1,47 +1,47 @@
-/*Construa um algoritom que leia um vetor de 10 posiï¿½ï¿½es com valores
+/*Construa um algoritom que leia um vetor de 10 posições com valores
 inteiros e contrua o seguinte Menu: 
 1 - Vetor Ordem Crescente
 2 - Vetor Ordem Decrescente
-3 - Vetor Original - Localizar Maior e Menor e respetivos ï¿½ndices
-4 - Gerar Valores de entrada de vetor Randomicamente(aleatï¿½rio)*/
-//Algoritmo mï¿½dia
+3 - Vetor Original - Localizar Maior e Menor e respetivos índices
+4 - Gerar Valores de entrada de vetor Randomicamente(aleatório)*/
+//Algoritmo média
 
-#include<conio.h> //inclusao da biblioteca conio - comandos I/O - Input/Output - Entrada e saï¿½da
-#include<stdio.h> //inclusao da biblioteca stdio - comandos de tela I/O
-#include<iostream>//inclusao da biblioteca mais completa
+#include<conio.h> //inclusão da biblioteca conio - comandos I/O - Input/Output - Entrada e saída
+#include<stdio.h> //inclusão da biblioteca stdio - comandos de tela I/O
+#include<iostream>//inclusão da biblioteca mais completa
 #include<locale.h>
 #include<stdlib.h>
 
-//declaracao variaveis 
-int Vetor[10]; //declarando a variavel Aluno do tipo caracter com possï¿½veis 30 caracteres
+//declaração variáveis 
+int Vetor[10]; //declarando a varíavel Aluno do tipo caracter com possíveis 30 caracteres
 int Maior,Menor,IndMaior,IndMenor;
 int VetorCresc[10],VetorDecre[10],VetorRandomizado[10];
-int opc;
-int AuxVetor;
+int opc;//variável opção do menu
+int AuxVetor;//variável auxiliar para realizar as trocas dos velores de vetores
 
-//Inicio
-int main(){ //comando da estrutura - Escopo - principal do programa
+//Início
+main(){ //comando da estrutura - Escopo - principal do programa
 setlocale (LC_ALL,"Portuguese");
 
-//entrada - Preencher o vetor
+//entrada - Preecher o vetor
 printf("\n Entrada de valores no Vetor Original");
 printf("\n \n");
 for(int i=0; i<10;i++){
 	printf("\n Digite o valor do Vetor[%i]: ",i);
-	scanf("%i",&Vetor[i]);}
+	scanf("%i",&Vetor[i]);}//preechendo o vetor
 
-Menu: //rÃ³tulo Menu
+Menu: //rótulo Menu
 printf("\n \n");	
-printf("\n Menu de Opcoes"); //construindo o Menu de opcoes
-printf("\n 1 - Vetor de Ordem Crescente ");
-printf("\n 2 - Vetor de Ordem Decrescente ");
-printf("\n 3 - Vetor Original - Maior e Menor - Indices ");
-printf("\n 4 - Gerar valores Randomicamente ");
+printf("\n Menu de Opções");//construindo o Menu opções
+printf("\n 1 - Vetor de Ordem Crescente");
+printf("\n 2 - Vetor de Ordem Decrescente");
+printf("\n 3 - Vetor Original - Maior e Menor - Indíces");
+printf("\n 4 - Gerar valores Randomicamente");
 printf("\n 5 - Sair Sistema");
-printf("\n Digite a opcao desejada ");
+printf("\n Digite a opção desejada");
 scanf("%i",&opc); //opc=getche();
 
-switch (opc) { //ninho if -
+switch (opc) {//ninho if - 
 	case 1:{ printf("\n Vetor em ordem Crescente");
 	         for(int i=0;i<10;i++){
 	         	VetorCresc[i]=Vetor[i];}//transferir dados
@@ -58,6 +58,7 @@ switch (opc) { //ninho if -
 	        for(int i=0;i<10;i++){
 	        	printf("\n VetorCresc[%i]: %i",i,VetorCresc[i]);
 	        }
+			printf("\n Tecle enter para voltar ao Menu");
 			getche();
 			goto Menu; 
 		break;
@@ -79,14 +80,15 @@ switch (opc) { //ninho if -
 	        for(int i=0;i<10;i++){
 	        	printf("\n VetorDecre[%i]: %i",i,VetorDecre[i]);
 	        }
+	        printf("\n Tecle enter para voltar ao Menu");
 	        getche();
 			goto Menu; 
 		break;
 	}
 	case 3:{
-		printf("\n Maior e Menor e seus indices");
-		Maior=Vetor[0]; //inicializei com o 1Âº valor do vetor
-		Menor=Vetor[0]; //inicializei com o 1Âº valor do vetor
+		printf("\n Maior e Menor e seus índices");
+		Maior=Vetor[0];//inicializei com o 1º valor do vetor
+		Menor=Vetor[0];//inicializei com o 1º valor do vetor
 		for(int i=0;i<10;i++){
 			if(Vetor[i]> Maior){
 				Maior=Vetor[i];
@@ -99,20 +101,22 @@ switch (opc) { //ninho if -
 			}
 		printf("\n Maior[%i]: %i",IndMaior,Maior);
 		printf("\n Menor[%i]: %i",IndMenor,Menor);
+		printf("\n Tecle enter para voltar ao Menu");
 		getche();
-			goto Menu; 
+		goto Menu; 
 		break;
 	}
-	case 4:{ printf("\n Vetor Aleatorio");
+	case 4:{ printf("\n Vetor Aleatório");
 	        for(int i=0;i<10;i++){
-	        	VetorRandomizado[i]= rand() % 100; //gero o vetor com valores aleatorios (usamos a funcao rand) de 0 ate 99
+	        	VetorRandomizado[i]= rand() % 100;//gero o vetor com valores aleatórios 0-99
 	        	printf("\n VetorRamdomizao[%i] : %i",i,VetorRandomizado[i]);
 	        }
-	        getche();
+	        printf("\n Tecle enter para voltar ao Menu");    
+		    getche();
 			goto Menu; 
 		break;
 	}
-	case 5:{exit(0); //saida do programa
+	case 5:{exit(0);//sair do programa
 		break;
 	}
 	default:{
